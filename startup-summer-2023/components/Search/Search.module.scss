@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+  width: 100%;
+  justify-self: flex-start;
+}
+
+.input {
+  & input {
+    height: 48px;
+  }
+}
+
+.button {
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+}

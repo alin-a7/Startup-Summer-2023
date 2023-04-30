@@ -1,0 +1,54 @@
+.container {
+  width: 315px;
+  height: 360px;
+
+  background: #ffffff;
+
+  border: 1px solid #eaebed;
+  border-radius: 12px;
+  padding: 20px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+
+  color: #232134;
+
+  gap: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reset {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.branch {
+  font-size: 16px;
+}
+
+.salary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & > div {
+    height: 40px !important;
+  }
+}
