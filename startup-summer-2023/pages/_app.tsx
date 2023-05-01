@@ -1,12 +1,16 @@
-import { AppProps } from "next/app";
+import type { AppProps } from "next/app";
+import { wrapper } from "@/store/store";
+import { Provider } from "react-redux";
 import { MantineProvider } from "@mantine/core";
 
 import "@/styles/globals.scss";
 
-export default function App(props: AppProps) {
-  const { Component, pageProps } = props;
+function App({ Component, ...rest }: AppProps) {
+  const { store, props } = wrapper.useWrappedStore(rest);
+  const { pageProps } = props;
 
   return (
+    <Provider store={store}>
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
@@ -16,5 +20,8 @@ export default function App(props: AppProps) {
       >
         <Component {...pageProps} />
       </MantineProvider>
+    </Provider>
   );
 }
+
+export default App;

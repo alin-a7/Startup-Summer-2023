@@ -1,14 +1,13 @@
 import { Button, NumberInput, Select } from "@mantine/core";
-import { useState } from "react";
+import { useActions, useAppSelector } from "@/store/hooks";
 
 import Reset from "@/assets/reset.svg";
 
 import styles from "./Filter.module.scss";
 
 const Filter = () => {
-  const [selectValue, setSelectValue] = useState<string>();
-  const [minSalary, setMinSalary] = useState<number>();
-  const [maxSalary, setMaxSalary] = useState<number>();
+  const { branch, minSalary, maxSalary } = useAppSelector((state) => state.app);
+  const { setBranch, setMinSalary, setMaxSalary } = useActions();
 
   return (
     <div className={styles.container}>
@@ -20,8 +19,8 @@ const Filter = () => {
         label="Отрасль"
         placeholder="Выбери отрасль"
         searchable
-        value={selectValue}
-        onChange={() => setSelectValue}
+        value={branch}
+        onChange={setBranch}
         data={[
           { value: "react", label: "React" },
           { value: "ng", label: "Angular" },
@@ -34,18 +33,15 @@ const Filter = () => {
           label="Oклад"
           placeholder="От"
           value={minSalary}
-          onChange={() => setMinSalary}
+          onChange={setMinSalary}
         />
         <NumberInput
           placeholder="До"
           value={maxSalary}
-          onChange={() => setMaxSalary}
+          onChange={setMaxSalary}
         />
       </div>
-      <Button
-        variant="filled"
-        className={styles.button}
-      >
+      <Button variant="filled" className={styles.button}>
         Применить
       </Button>
     </div>
