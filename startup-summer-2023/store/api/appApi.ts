@@ -1,11 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
+import { Industry, Params, ResponseData, Vacancy } from "../types";
 
 
 export const appApi = createApi({
-  reducerPath: 'appApi',
+  reducerPath: "appApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000",
+    baseUrl: "https://startup-summer-2023-proxy.onrender.com/2.0",
   }),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
@@ -13,17 +14,31 @@ export const appApi = createApi({
     }
   },
   endpoints: (builder) => ({
-    getAllUser: builder.query({
-      query: () => `/user`,
+    getVacancies: builder.query<ResponseData, Params>({
+      query: ({page}) => ({
+        url: `/vacancies/?page=${page}`,
+        headers: {
+          "x-secret-key": process.env.NEXT_PUBLIC_SECRET_KEY,
+          'X-Api-App-Id': process.env.NEXT_PUBLIC_APP_ID
+        },
+      }),
     }),
-    getUser: builder.query({
-      query: (id) => `/user/${id}`,
+    getIndustries: builder.query<Industry[], void>({
+      query: () => ({
+        url: `/catalogues/`,
+        headers: {
+          "x-secret-key": process.env.NEXT_PUBLIC_SECRET_KEY,
+          'X-Api-App-Id': process.env.NEXT_PUBLIC_APP_ID
+        },
+      }),
     }),
   }),
 });
 
 export const {
+  useGetVacanciesQuery,
+  useGetIndustriesQuery,
   util: { getRunningQueriesThunk },
 } = appApi;
 
-export const { getAllUser, getUser } = appApi.endpoints;
+export const { getVacancies, getIndustries } = appApi.endpoints;

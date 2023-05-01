@@ -4,10 +4,24 @@ import { useActions, useAppSelector } from "@/store/hooks";
 import Reset from "@/assets/reset.svg";
 
 import styles from "./Filter.module.scss";
+import { useGetIndustriesQuery } from "@/store/api/appApi";
+import { Industry } from "@/store/types";
+
+const getSelectData = (arr: Industry[] | undefined) => {
+  return (
+    arr?.map((industry) => ({
+      value: industry.key.toString(),
+      label: industry.title_rus,
+    })) || []
+  );
+};
 
 const Filter = () => {
   const { branch, minSalary, maxSalary } = useAppSelector((state) => state.app);
   const { setBranch, setMinSalary, setMaxSalary } = useActions();
+
+  const { data: industries } = useGetIndustriesQuery();
+  const selectData = getSelectData(industries);
 
   return (
     <div className={styles.container}>
@@ -21,12 +35,7 @@ const Filter = () => {
         searchable
         value={branch}
         onChange={setBranch}
-        data={[
-          { value: "react", label: "React" },
-          { value: "ng", label: "Angular" },
-          { value: "svelte", label: "Svelte" },
-          { value: "vue", label: "Vue" },
-        ]}
+        data={selectData}
       />
       <div className={styles.salary}>
         <NumberInput

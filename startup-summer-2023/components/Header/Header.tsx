@@ -18,12 +18,12 @@ const NAVIGATION_MENU = [
 ];
 
 const Header: FC = () => {
-  const { pathname } = useRouter();
+  const { pathname, push } = useRouter();
 
   return (
     <header className={styles.container}>
       <nav className={styles.navLink}>
-        <Logo className={styles.logo}/>
+        <Logo className={styles.logo} onClick={() => push("/")} />
         {NAVIGATION_MENU.map(({ href, label }, index) => (
           <Link
             key={index}

@@ -36,6 +36,10 @@
 .logo {
   position: absolute;
   left: 10%;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .active {

@@ -1,12 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-interface InitialState {
-  page: number;
-  branch: string;
-  vacancy: string;
-  minSalary: number | undefined;
-  maxSalary: number | undefined;
-}
+import { InitialState } from "../types";
 
 const initialState: InitialState = {
   page: 1,
