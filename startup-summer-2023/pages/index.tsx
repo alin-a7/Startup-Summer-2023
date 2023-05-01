@@ -11,11 +11,11 @@ import VacancyList from "@/components/VacancyList";
 import styles from "@/styles/Home.module.scss";
 
 export default function Home() {
-  const { page } = useAppSelector((state) => state.app);
+  const { page, vacancy } = useAppSelector((state) => state.app);
   const { setPage } = useActions();
 
-  const { data, isFetching } = useGetVacanciesQuery({ page });
-  console.log(data);
+  const { data, isFetching } = useGetVacanciesQuery({ page, vacancy });
+  const vacancies = data?.objects;
 
   return (
     <Layout>
@@ -23,8 +23,13 @@ export default function Home() {
         <Filter />
         <div className={styles.content}>
           <Search />
-          <VacancyList vacancies={data?.objects as Vacancy[]}/>
-          <Pagination value={page} onChange={setPage} total={10} />
+          <VacancyList
+            vacancies={vacancies as Vacancy[]}
+            isFetching={isFetching}
+          />
+          {!!vacancies?.length && !isFetching && (
+            <Pagination value={page} onChange={setPage} total={10} />
+          )}
         </div>
       </div>
     </Layout>

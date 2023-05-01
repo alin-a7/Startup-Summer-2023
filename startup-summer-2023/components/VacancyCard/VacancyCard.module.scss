@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 12px;
 
-  height: 137px;
+  min-height: 137px;
 
   background: #ffffff;
   width: 100%;
@@ -25,6 +25,10 @@
 
   display: flex;
   justify-content: space-between;
+
+  & > div {
+    width: 90%;
+  }
 }
 
 .condition {
@@ -51,5 +55,6 @@
 
 .location {
   display: flex;
+  align-items: center;
   gap: 12px;
 }

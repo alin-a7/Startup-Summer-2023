@@ -15,8 +15,8 @@ export const appApi = createApi({
   },
   endpoints: (builder) => ({
     getVacancies: builder.query<ResponseData, Params>({
-      query: ({page}) => ({
-        url: `/vacancies/?page=${page}`,
+      query: ({page, vacancy}) => ({
+        url: `/vacancies/?page=${page}&keyword=${vacancy}`,
         headers: {
           "x-secret-key": process.env.NEXT_PUBLIC_SECRET_KEY,
           'X-Api-App-Id': process.env.NEXT_PUBLIC_APP_ID
