@@ -22,6 +22,15 @@ export const appApi = createApi({
         },
       }),
     }),
+    getVacancy: builder.query<Vacancy, string>({
+      query: (id) => ({
+        url: `/vacancies/${id}`,
+        headers: {
+          "x-secret-key": process.env.NEXT_PUBLIC_SECRET_KEY,
+          "X-Api-App-Id": process.env.NEXT_PUBLIC_APP_ID,
+        },
+      }),
+    }),
     getIndustries: builder.query<Industry[], void>({
       query: () => ({
         url: `/catalogues/`,
@@ -35,9 +44,10 @@ export const appApi = createApi({
 });
 
 export const {
+  useGetVacancyQuery,
   useGetVacanciesQuery,
   useGetIndustriesQuery,
   util: { getRunningQueriesThunk },
 } = appApi;
 
-export const { getVacancies, getIndustries } = appApi.endpoints;
+export const { getVacancies, getIndustries, getVacancy } = appApi.endpoints;

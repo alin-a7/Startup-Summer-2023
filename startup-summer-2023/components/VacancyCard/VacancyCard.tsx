@@ -1,24 +1,32 @@
-import { Vacancy } from "@/store/types";
+import { useRouter } from "next/router";
 
+import { Vacancy } from "@/store/types";
 import Star from "@/assets/star.svg";
 import Location from "@/assets/location.svg";
 
 import styles from "./VacancyCard.module.scss";
 
-const VacancyCard = ({
-  profession,
-  payment_from,
-  currency,
-  type_of_work,
-  town,
-}: Vacancy) => {
+interface VacancyCardProps {
+  vacancy: Vacancy;
+  isPersonalCard?: boolean;
+}
+const VacancyCard = ({ vacancy, isPersonalCard }: VacancyCardProps) => {
+  const { id, profession, payment_from, currency, type_of_work, town } =
+    vacancy;
+  const { push } = useRouter();
+  
   return (
     <div className={styles.container}>
-      <div className={styles.title}>
+      <div
+        className={isPersonalCard ? styles.titlePersonal : styles.title}
+        onClick={() => push(`/vacancies/${id}`)}
+      >
         <div>{profession}</div>
         <Star />
       </div>
-      <div className={styles.condition}>
+      <div
+        className={isPersonalCard ? styles.conditionPersonal : styles.condition}
+      >
         <div className={styles.salary}>
           з/п от {payment_from} {currency}
         </div>

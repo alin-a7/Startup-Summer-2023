@@ -18,6 +18,7 @@ export interface Vacancy {
   payment_to: number;
   payment_from: number;
   currency: string;
+  candidat: string;
 }
 
 export interface ResponseData {

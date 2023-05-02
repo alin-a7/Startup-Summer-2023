@@ -19,7 +19,7 @@ const VacancyList = ({ vacancies, isFetching }: VacancyListProps) => {
     <div className={styles.container}>
       {vacancies.length ? (
         vacancies?.map((vacancy, index) => (
-          <VacancyCard key={index} {...vacancy} />
+          <VacancyCard key={index} vacancy={vacancy} />
         ))
       ) : (
         <div className={styles.notFound}>
