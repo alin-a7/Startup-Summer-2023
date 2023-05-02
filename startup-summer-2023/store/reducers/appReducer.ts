@@ -33,5 +33,5 @@ export const appSlice = createSlice({
 
 export const { setBranch, setMaxSalary, setMinSalary, setPage, setVacancy } =
   appSlice.actions;
-  
+
 export default appSlice.reducer;

@@ -11,11 +11,12 @@ import VacancyList from "@/components/VacancyList";
 import styles from "@/styles/Home.module.scss";
 
 export default function Home() {
-  const { page, vacancy } = useAppSelector((state) => state.app);
+  const { page, vacancy, branch, minSalary, maxSalary } = useAppSelector((state) => state.app);
   const { setPage } = useActions();
 
-  const { data, isFetching } = useGetVacanciesQuery({ page, vacancy });
+  const { data, isFetching } = useGetVacanciesQuery({ page, vacancy, branch, minSalary, maxSalary });
   const vacancies = data?.objects;
+  console.log(vacancies)
 
   return (
     <Layout>

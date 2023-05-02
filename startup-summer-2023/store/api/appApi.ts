@@ -2,7 +2,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 import { Industry, Params, ResponseData, Vacancy } from "../types";
 
-
 export const appApi = createApi({
   reducerPath: "appApi",
   baseQuery: fetchBaseQuery({
@@ -15,11 +14,11 @@ export const appApi = createApi({
   },
   endpoints: (builder) => ({
     getVacancies: builder.query<ResponseData, Params>({
-      query: ({page, vacancy}) => ({
-        url: `/vacancies/?page=${page}&keyword=${vacancy}`,
+      query: ({ page, vacancy, branch, minSalary, maxSalary }) => ({
+        url: `/vacancies/?page=${page}&keyword=${vacancy}&catalogues=${branch}&payment_from=${minSalary}&payment_to=${maxSalary}`,
         headers: {
           "x-secret-key": process.env.NEXT_PUBLIC_SECRET_KEY,
-          'X-Api-App-Id': process.env.NEXT_PUBLIC_APP_ID
+          "X-Api-App-Id": process.env.NEXT_PUBLIC_APP_ID,
         },
       }),
     }),
@@ -28,7 +27,7 @@ export const appApi = createApi({
         url: `/catalogues/`,
         headers: {
           "x-secret-key": process.env.NEXT_PUBLIC_SECRET_KEY,
-          'X-Api-App-Id': process.env.NEXT_PUBLIC_APP_ID
+          "X-Api-App-Id": process.env.NEXT_PUBLIC_APP_ID,
         },
       }),
     }),

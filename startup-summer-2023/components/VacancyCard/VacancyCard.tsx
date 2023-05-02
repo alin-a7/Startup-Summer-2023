@@ -7,7 +7,7 @@ import styles from "./VacancyCard.module.scss";
 
 const VacancyCard = ({
   profession,
-  payment_to,
+  payment_from,
   currency,
   type_of_work,
   town,
@@ -20,7 +20,7 @@ const VacancyCard = ({
       </div>
       <div className={styles.condition}>
         <div className={styles.salary}>
-          з/п от {payment_to} {currency}
+          з/п от {payment_from} {currency}
         </div>
         <span className={styles.point}></span>
         <div>{type_of_work.title}</div>
