@@ -8,7 +8,7 @@ import styles from "./VacancyList.module.scss";
 
 interface VacancyListProps {
   vacancies: Vacancy[];
-  isFetching: boolean;
+  isFetching?: boolean;
 }
 
 const VacancyList = ({ vacancies, isFetching }: VacancyListProps) => {

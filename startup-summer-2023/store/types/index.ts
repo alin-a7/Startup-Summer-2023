@@ -1,11 +1,15 @@
 import { title } from "process";
 
-export interface InitialState {
+export interface FilterState {
   page: number;
   branch: string;
   vacancy: string;
   minSalary: number | undefined;
   maxSalary: number | undefined;
+  favouritesVacancies: Vacancy[]
+}
+export interface InitialState extends FilterState {
+  favouritesVacancies: Vacancy[]
 }
 
 export interface Vacancy {
@@ -31,4 +35,4 @@ export interface Industry {
   key: number;
 }
 
-export type Params = Partial<InitialState>;
+export type Params = Partial<FilterState>;

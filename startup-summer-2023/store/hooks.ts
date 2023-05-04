@@ -3,6 +3,8 @@ import { bindActionCreators } from "@reduxjs/toolkit";
 
 import type { RootState, AppDispatch } from "./store";
 import {
+  addVacancy,
+  deleteVacancy,
   setBranch,
   setMaxSalary,
   setMinSalary,
@@ -19,6 +21,8 @@ const actions = {
   setMinSalary,
   setPage,
   setVacancy,
+  addVacancy,
+  deleteVacancy,
 };
 
 export const useActions = () => {

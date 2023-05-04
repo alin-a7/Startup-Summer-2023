@@ -16,7 +16,6 @@ export default function Home() {
 
   const { data, isFetching } = useGetVacanciesQuery({ page, vacancy, branch, minSalary, maxSalary });
   const vacancies = data?.objects;
-  console.log(vacancies)
 
   return (
     <Layout>

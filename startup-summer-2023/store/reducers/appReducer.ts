@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { InitialState } from "../types";
+import { InitialState, Vacancy } from "../types";
+
+const ISSERVER = typeof window === "undefined";
+const isVacancies = !ISSERVER && !!localStorage.getItem("vacancies");
 
 const initialState: InitialState = {
   page: 1,
@@ -7,6 +10,9 @@ const initialState: InitialState = {
   vacancy: "",
   minSalary: undefined,
   maxSalary: undefined,
+  favouritesVacancies: isVacancies
+    ? JSON.parse(localStorage.getItem("vacancies") as string)
+    : [],
 };
 
 export const appSlice = createSlice({
@@ -28,10 +34,28 @@ export const appSlice = createSlice({
     setMaxSalary(state, action: { payload: number }) {
       state.maxSalary = action.payload;
     },
+    addVacancy(state, action: { payload: Vacancy }) {
+      state.favouritesVacancies = [
+        ...state.favouritesVacancies,
+        action.payload,
+      ];
+    },
+    deleteVacancy(state, action: { payload: Vacancy }) {
+      state.favouritesVacancies = state.favouritesVacancies.filter(
+        ({ id }) => id !== action.payload.id
+      );
+    },
   },
 });
 
-export const { setBranch, setMaxSalary, setMinSalary, setPage, setVacancy } =
-  appSlice.actions;
+export const {
+  setBranch,
+  setMaxSalary,
+  setMinSalary,
+  setPage,
+  setVacancy,
+  addVacancy,
+  deleteVacancy,
+} = appSlice.actions;
 
 export default appSlice.reducer;
