@@ -1,4 +1,7 @@
 import { title } from "process";
+import React from "react";
+import { ReactNode } from "react";
+import { JsxElement } from "typescript";
 
 export interface FilterState {
   page: number;
@@ -6,10 +9,10 @@ export interface FilterState {
   vacancy: string;
   minSalary: number | undefined;
   maxSalary: number | undefined;
-  favouritesVacancies: Vacancy[]
+  favouritesVacancies: Vacancy[];
 }
 export interface InitialState extends FilterState {
-  favouritesVacancies: Vacancy[]
+  favouritesVacancies: Vacancy[];
 }
 
 export interface Vacancy {
@@ -22,6 +25,7 @@ export interface Vacancy {
   payment_to: number;
   payment_from: number;
   currency: string;
+  vacancyRichText: string;
   candidat: string;
 }
 

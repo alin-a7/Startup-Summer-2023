@@ -2,17 +2,18 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 import { Vacancy } from "@/store/types";
+import { useActions, useAppSelector } from "@/store/hooks";
 import Star from "@/assets/star.svg";
 import FavoriteStar from "@/assets/favoriteStar.svg";
 import Location from "@/assets/location.svg";
 
 import styles from "./VacancyCard.module.scss";
-import { useActions, useAppSelector } from "@/store/hooks";
 
 interface VacancyCardProps {
   vacancy: Vacancy;
   isPersonalCard?: boolean;
 }
+
 const VacancyCard = ({ vacancy, isPersonalCard }: VacancyCardProps) => {
   const { favouritesVacancies } = useAppSelector((store) => store.app);
   const { addVacancy, deleteVacancy } = useActions();
@@ -62,7 +63,9 @@ const VacancyCard = ({ vacancy, isPersonalCard }: VacancyCardProps) => {
         </div>
         <span className={styles.point}></span>
         <div>{type_of_work.title}</div>
+        <span className={`${styles.point} ${styles.mobile}`}></span>
       </div>
+
       <div className={styles.location}>
         <Location />
         <div>{town.title}</div>

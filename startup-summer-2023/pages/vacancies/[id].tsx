@@ -20,12 +20,12 @@ export default function SelectVacancy() {
       </Layout>
     );
   }
-  
+
   if (error) {
     return (
       <Layout>
         <div className={styles.error}>
-          <NotFoundIcon/>
+          <NotFoundIcon />
           <div>Что-то пошло не так...</div>
         </div>
       </Layout>
@@ -36,7 +36,7 @@ export default function SelectVacancy() {
     <Layout>
       <div className={styles.container}>
         <VacancyCard vacancy={data as Vacancy} isPersonalCard />
-        <div className={styles.info}>{data?.candidat}</div>
+        <div className={styles.info}>{data?.vacancyRichText}</div>
       </div>
     </Layout>
   );
