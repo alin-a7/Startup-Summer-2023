@@ -26,14 +26,20 @@ const VacancyCard = ({ vacancy, isPersonalCard }: VacancyCardProps) => {
   } = useVacancyCard(vacancy);
 
   return (
-    <div className={styles.container}>
+    <div data-elem={`vacancy-${currentId}`} className={styles.container}>
       <div className={isPersonalCard ? styles.titlePersonal : styles.title}>
         <div onClick={() => push(`/vacancies/${currentId}`)}>{profession}</div>
         <span className={styles.star}>
           {isFavorite ? (
-            <FavoriteStar onClick={removeFromFavourite} />
+            <FavoriteStar
+              data-elem={`vacancy-${currentId}-shortlist-button`}
+              onClick={removeFromFavourite}
+            />
           ) : (
-            <Star onClick={addToFavourite} />
+            <Star
+              data-elem={`vacancy-${currentId}-shortlist-button`}
+              onClick={addToFavourite}
+            />
           )}
         </span>
       </div>

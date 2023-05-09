@@ -23,6 +23,7 @@ const Search = () => {
       onSubmit={form.onSubmit(({ search }) => setVacancy(search))}
     >
       <TextInput
+        data-elem="search-input"
         placeholder="Введите название вакансии"
         icon={<SearchIcon />}
         radius="md"
@@ -30,12 +31,13 @@ const Search = () => {
         {...form.getInputProps("search")}
       />
       <Button
+        data-elem="search-button"
         variant="filled"
         radius="md"
         className={styles.button}
         type="submit"
       >
-        <SearchIcon className={styles.searchIcon}/>
+        <SearchIcon className={styles.searchIcon} />
         <span className={styles.btnText}>Поиск</span>
       </Button>
     </form>

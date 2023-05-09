@@ -13,7 +13,7 @@ interface VacancyListProps {
 
 const VacancyList = ({ vacancies, isFetching }: VacancyListProps) => {
   if (isFetching) {
-    return <Loader />;
+    return <Loader size="xl" variant="dots" className={styles.loader} />;
   }
   return (
     <div className={styles.container}>

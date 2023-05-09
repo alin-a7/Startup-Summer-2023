@@ -11,10 +11,18 @@ import VacancyList from "@/components/VacancyList";
 import styles from "@/styles/Home.module.scss";
 
 export default function Home() {
-  const { page, vacancy, branch, minSalary, maxSalary } = useAppSelector((state) => state.app);
+  const { page, vacancy, branch, minSalary, maxSalary } = useAppSelector(
+    (state) => state.app
+  );
   const { setPage } = useActions();
 
-  const { data, isFetching } = useGetVacanciesQuery({ page, vacancy, branch, minSalary, maxSalary });
+  const { data, isFetching } = useGetVacanciesQuery({
+    page,
+    vacancy,
+    branch,
+    minSalary,
+    maxSalary,
+  });
   const vacancies = data?.objects;
 
   return (
@@ -28,7 +36,14 @@ export default function Home() {
             isFetching={isFetching}
           />
           {!!vacancies?.length && !isFetching && (
-            <Pagination value={page} onChange={setPage} total={10} className={styles.pagination} />
+            <Pagination
+              value={page}
+              onChange={setPage}
+              total={10}
+              className={styles.pagination}
+              siblings={1}
+              boundaries={1}
+            />
           )}
         </div>
       </div>

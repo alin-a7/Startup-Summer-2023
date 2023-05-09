@@ -18,6 +18,7 @@ const Filter = () => {
         <Reset className={styles.reset} onClick={handleReset} />
       </div>
       <Select
+        data-elem="industry-select"
         label="Отрасль"
         placeholder="Выбери отрасль"
         searchable
@@ -26,13 +27,24 @@ const Filter = () => {
       />
       <div className={styles.salary}>
         <NumberInput
+          data-elem="salary-from-input"
           label="Oклад"
           placeholder="От"
           {...form.getInputProps("minSalary")}
         />
-        <NumberInput placeholder="До" {...form.getInputProps("maxSalary")} />
+        <NumberInput
+          data-elem="salary-to-input"
+          placeholder="До"
+          {...form.getInputProps("maxSalary")}
+        />
       </div>
-      <Button variant="filled" className={styles.button} type="submit">
+
+      <Button
+        variant="filled"
+        className={styles.button}
+        type="submit"
+        data-elem="search-button"
+      >
         Применить
       </Button>
     </form>

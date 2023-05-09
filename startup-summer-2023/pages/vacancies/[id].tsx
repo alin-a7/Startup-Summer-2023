@@ -16,7 +16,7 @@ export default function SelectVacancy() {
   if (isFetching) {
     return (
       <Layout>
-        <Loader />
+        <Loader size="xl" variant="dots" />{" "}
       </Layout>
     );
   }
