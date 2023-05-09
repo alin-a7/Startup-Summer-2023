@@ -17,11 +17,10 @@ const Search = () => {
     },
   });
 
-
   return (
     <form
       className={styles.container}
-      onSubmit={form.onSubmit((values) => setVacancy(values.search))}
+      onSubmit={form.onSubmit(({ search }) => setVacancy(search))}
     >
       <TextInput
         placeholder="Введите название вакансии"
@@ -36,7 +35,8 @@ const Search = () => {
         className={styles.button}
         type="submit"
       >
-        Поиск
+        <SearchIcon className={styles.searchIcon}/>
+        <span className={styles.btnText}>Поиск</span>
       </Button>
     </form>
   );

@@ -15,3 +15,20 @@
   right: 10px;
   bottom: 6px;
 }
+
+.searchIcon {
+  display: none;
+}
+
+@media (max-width: 380px) {
+  .button {
+    width: 50px;
+  }
+  .btnText {
+    display: none;
+  }
+
+  .searchIcon {
+    display: block;
+  }
+}

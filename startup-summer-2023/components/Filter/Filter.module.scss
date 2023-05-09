@@ -55,3 +55,12 @@
     height: 40px !important;
   }
 }
+
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+    height: 100%;
+
+    position: static;
+  }
+}

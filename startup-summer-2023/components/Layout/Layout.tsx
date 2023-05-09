@@ -21,7 +21,7 @@ const Layout: FC<LayotProps> = ({ children }) => {
       </Head>
       <main className={styles.layout}>
         <Header />
-        <main className={styles.childrenBlock}>{children}</main>
+        <div className={styles.childrenBlock}>{children}</div>
       </main>
     </>
   );

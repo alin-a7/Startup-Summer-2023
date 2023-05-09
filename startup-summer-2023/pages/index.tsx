@@ -28,7 +28,7 @@ export default function Home() {
             isFetching={isFetching}
           />
           {!!vacancies?.length && !isFetching && (
-            <Pagination value={page} onChange={setPage} total={10} />
+            <Pagination value={page} onChange={setPage} total={10} className={styles.pagination} />
           )}
         </div>
       </div>

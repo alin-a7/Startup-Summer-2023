@@ -1,11 +1,8 @@
-import { useRouter } from "next/router";
-import { useState } from "react";
-
 import { Vacancy } from "@/store/types";
-import { useActions, useAppSelector } from "@/store/hooks";
 import Star from "@/assets/star.svg";
 import FavoriteStar from "@/assets/favoriteStar.svg";
 import Location from "@/assets/location.svg";
+import { useVacancyCard } from "./hooks";
 
 import styles from "./VacancyCard.module.scss";
 
@@ -15,33 +12,18 @@ interface VacancyCardProps {
 }
 
 const VacancyCard = ({ vacancy, isPersonalCard }: VacancyCardProps) => {
-  const { favouritesVacancies } = useAppSelector((store) => store.app);
-  const { addVacancy, deleteVacancy } = useActions();
-
   const {
-    id: currentId,
+    push,
+    addToFavourite,
+    removeFromFavourite,
+    currentId,
+    isFavorite,
     profession,
     payment_from,
     currency,
     type_of_work,
     town,
-  } = vacancy;
-
-  const isFavorite = !!favouritesVacancies.find(({ id }) => id === currentId);
-
-  const { push } = useRouter();
-
-  const addToFavourite = () => {
-    addVacancy(vacancy);
-  };
-
-  const removeFromFavourite = () => {
-    deleteVacancy(vacancy);
-  };
-
-  window.addEventListener("beforeunload", () =>
-    localStorage.setItem("vacancies", JSON.stringify(favouritesVacancies))
-  );
+  } = useVacancyCard(vacancy);
 
   return (
     <div className={styles.container}>
