@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import parse from 'html-react-parser'
 import { Loader } from "@mantine/core";
 
 import Layout from "@/components/Layout";
@@ -16,7 +17,7 @@ export default function SelectVacancy() {
   if (isFetching) {
     return (
       <Layout>
-        <Loader size="xl" variant="dots" />{" "}
+        <Loader size="xl" variant="dots" />
       </Layout>
     );
   }
@@ -36,7 +37,7 @@ export default function SelectVacancy() {
     <Layout>
       <div className={styles.container}>
         <VacancyCard vacancy={data as Vacancy} isPersonalCard />
-        <div className={styles.info}>{data?.vacancyRichText}</div>
+        <div className={styles.info}>{parse(data?.vacancyRichText || '')}</div>
       </div>
     </Layout>
   );
