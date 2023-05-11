@@ -19,8 +19,7 @@ const VacancyCard = ({ vacancy, isPersonalCard }: VacancyCardProps) => {
     currentId,
     isFavorite,
     profession,
-    payment_from,
-    currency,
+    salary,
     type_of_work,
     town,
   } = useVacancyCard(vacancy);
@@ -47,7 +46,7 @@ const VacancyCard = ({ vacancy, isPersonalCard }: VacancyCardProps) => {
         className={isPersonalCard ? styles.conditionPersonal : styles.condition}
       >
         <div className={styles.salary}>
-          з/п от {payment_from} {currency}
+          {salary}
         </div>
         <span className={styles.point}></span>
         <div>{type_of_work.title}</div>

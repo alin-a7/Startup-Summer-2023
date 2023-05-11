@@ -13,6 +13,7 @@ export const useVacancyCard = (vacancy: Vacancy) => {
     payment_from,
     currency,
     type_of_work,
+    payment_to,
     town,
   } = vacancy;
 
@@ -32,6 +33,10 @@ export const useVacancyCard = (vacancy: Vacancy) => {
     localStorage.setItem("vacancies", JSON.stringify(favouritesVacancies))
   );
 
+  const salary = `з/п от ${payment_from} ${
+    payment_to ? `до ${payment_to} ` : ""
+  } ${currency}`;
+
   return {
     push,
     addToFavourite,
@@ -39,8 +44,7 @@ export const useVacancyCard = (vacancy: Vacancy) => {
     currentId,
     isFavorite,
     profession,
-    payment_from,
-    currency,
+    salary,
     type_of_work,
     town,
   };
