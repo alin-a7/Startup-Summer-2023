@@ -1,21 +1,6 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-}
-
-.notFoundText {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  color: #343a40;
-}
-
-@media (max-width: 365px) {
-  .notFoundText {
-    font-size: 21px;
+  & div {
+    text-align: center;
   }
 }
 
