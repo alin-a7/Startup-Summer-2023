@@ -1,0 +1,25 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+.childrenBlock {
+  max-width: 1800px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 40px 10%;
+
+  display: flex;
+  justify-content: center;
+
+  min-height: calc(100vh - 84px);
+}
+
+@media (max-width: 900px) {
+  .childrenBlock {
+    padding: 40px 5%;
+  }
+}

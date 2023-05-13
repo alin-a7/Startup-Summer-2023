@@ -1,0 +1,117 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  min-height: 137px;
+
+  background: #ffffff;
+  width: 100%;
+  padding: 24px;
+  border: 1px solid #eaebed;
+  border-radius: 12px;
+
+  & > div {
+    width: 100%;
+  }
+}
+
+.star {
+  &:hover {
+    cursor: pointer;
+    scale: 1.05;
+  }
+}
+
+.title,
+.titlePersonal {
+  display: flex;
+  justify-content: space-between;
+
+  & > div {
+    width: 99%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #5e96fc;
+}
+.titlePersonal {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+
+  color: #232134;
+}
+
+.condition,
+.conditionPersonal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 20px;
+
+  & > div {
+    text-align: center;
+  }
+}
+
+.condition {
+  font-size: 16px;
+}
+
+.conditionPersonal {
+  font-size: 20px;
+}
+
+.salary {
+  font-weight: 600;
+}
+
+.point {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 21px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7b7c88;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 580px) {
+  .title,
+  .titlePersonal {
+    font-size: 18px;
+    text-align: center;
+  }
+  .condition,
+  .conditionPersonal {
+    flex-direction: column;
+    font-size: 16px;
+  }
+  .location {
+    justify-content: center;
+  }
+
+  .mobile {
+    display: block;
+  }
+}

@@ -1,0 +1,33 @@
+.container {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-self: flex-start;
+}
+
+.content {
+  width: calc(100% - 335px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 800px) {
+  .content {
+    width: 100%;
+  }
+  .container {
+    flex-direction: column;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .pagination {
+    width: 70%;
+  }
+}
