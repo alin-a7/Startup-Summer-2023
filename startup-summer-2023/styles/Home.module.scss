@@ -25,3 +25,9 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 400px) {
+  .pagination {
+    width: 70%;
+  }
+}

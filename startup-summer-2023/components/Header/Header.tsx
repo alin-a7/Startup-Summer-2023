@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 import Logo from "../../assets/logo.svg";
+import MobileLogo from "../../assets/mobileLogo.svg";
 
 import styles from "./Header.module.scss";
 
@@ -24,6 +25,7 @@ const Header: FC = () => {
     <header className={styles.container}>
       <nav className={styles.navLink}>
         <Logo className={styles.logo} onClick={() => push("/")} />
+        <MobileLogo className={styles.mobileLogo} onClick={() => push("/")} />
         {NAVIGATION_MENU.map(({ href, label }, index) => (
           <Link
             key={index}

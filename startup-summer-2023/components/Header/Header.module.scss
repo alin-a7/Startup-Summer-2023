@@ -45,3 +45,34 @@
 .active {
   color: #5e96fc;
 }
+
+.mobileLogo {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .navLink {
+    position: static;
+    justify-content: space-around;
+    gap: 10px;
+  }
+  .logo {
+    position: static;
+  }
+}
+
+@media (max-width: 500px) {
+  .logo {
+    display: none;
+  }
+
+  .mobileLogo {
+    display: block;
+  }
+}
+
+@media (max-width: 380px) {
+  .menuItem {
+    font-size: 17px;
+  }
+}
