@@ -13,6 +13,7 @@ export interface FilterState {
 }
 export interface InitialState extends FilterState {
   favouritesVacancies: Vacancy[];
+  favouritesPage: number
 }
 
 export interface Vacancy {

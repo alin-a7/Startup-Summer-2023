@@ -6,6 +6,7 @@ import {
   addVacancy,
   deleteVacancy,
   setBranch,
+  setFavouritesPage,
   setMaxSalary,
   setMinSalary,
   setPage,
@@ -23,6 +24,7 @@ const actions = {
   setVacancy,
   addVacancy,
   deleteVacancy,
+  setFavouritesPage
 };
 
 export const useActions = () => {
