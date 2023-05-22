@@ -6,6 +6,7 @@ const isVacancies = !ISSERVER && !!localStorage.getItem("vacancies");
 
 const initialState: InitialState = {
   page: 1,
+  favouritesPage: 1,
   branch: "",
   vacancy: "",
   minSalary: undefined,
@@ -45,6 +46,10 @@ export const appSlice = createSlice({
         ({ id }) => id !== action.payload.id
       );
     },
+    setFavouritesPage(state, action: { payload: number }) {
+      state.favouritesPage = action.payload;
+    },
+
   },
 });
 
@@ -56,6 +61,7 @@ export const {
   setVacancy,
   addVacancy,
   deleteVacancy,
+  setFavouritesPage,
 } = appSlice.actions;
 
 export default appSlice.reducer;

@@ -1,0 +1,20 @@
+.container {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .pagination {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .pagination {
+    width: 70%;
+  }
+}
