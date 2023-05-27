@@ -16,9 +16,12 @@ export const useHomePage = () => {
   });
   const vacancies = data?.objects || [];
 
-  const LIMIT = 20;
+  const VACANCIES_ON_PAGE = 20;
 
-  const totalPage = Math.ceil((data?.total as number) / LIMIT);
+  const TOTAL =
+    (data?.total as number) < 400
+      ? Math.ceil((data?.total as number) / VACANCIES_ON_PAGE)
+      : VACANCIES_ON_PAGE;
 
-  return { vacancies, isFetching, page, setPage, totalPage };
+  return { vacancies, isFetching, page, setPage, TOTAL };
 };

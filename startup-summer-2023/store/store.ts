@@ -12,7 +12,10 @@ export const rootReducer = combineReducers({
 export const makeStore = () =>
   configureStore({
     reducer: rootReducer,
-    middleware: (gDM) => gDM().concat(appApi.middleware),
+    middleware: (gDM) =>
+      gDM({ immutableCheck: false, serializableCheck: false }).concat(
+        appApi.middleware
+      ),
   });
 
 export type AppStore = ReturnType<typeof makeStore>;

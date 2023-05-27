@@ -1,26 +1,16 @@
 import { Button, TextInput } from "@mantine/core";
-import { useForm } from "@mantine/form";
-
-import { useActions, useAppSelector } from "@/store/hooks";
 
 import SearchIcon from "@/assets/search.svg";
+import { useSearch } from "./hooks";
 
 import styles from "./Search.module.scss";
 
 const Search = () => {
-  const { vacancy } = useAppSelector((state) => state.app);
-  const { setVacancy } = useActions();
-
-  const form = useForm({
-    initialValues: {
-      search: vacancy,
-    },
-  });
-
+  const { form, formSubmit } = useSearch();
   return (
     <form
       className={styles.container}
-      onSubmit={form.onSubmit(({ search }) => setVacancy(search))}
+      onSubmit={form.onSubmit(({ search }) => formSubmit(search))}
     >
       <TextInput
         data-elem="search-input"
