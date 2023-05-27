@@ -32,6 +32,7 @@ export interface Vacancy {
 
 export interface ResponseData {
   objects: Vacancy[];
+  total: number
 }
 
 export interface Industry {

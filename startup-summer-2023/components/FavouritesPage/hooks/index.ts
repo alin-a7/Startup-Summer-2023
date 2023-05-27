@@ -25,7 +25,14 @@ export const useFavouritesPage = () => {
   }, [favouritesPage, favouritesVacancies]);
 
   useEffect(() => {
+    if (!currentVacancies.length && !!favouritesVacancies.length) {
+      setFavouritesPage(favouritesPage - 1 || 1);
+    }
+  }, [currentVacancies]);
+
+  useEffect(() => {
     setIsClient(true);
+    setFavouritesPage(favouritesPage);
   }, []);
 
   return {
