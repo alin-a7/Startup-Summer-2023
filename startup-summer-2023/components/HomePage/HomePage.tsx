@@ -9,7 +9,7 @@ import { useHomePage } from "./hooks";
 import styles from "./HomePage.module.scss";
 
 const HomePage = () => {
-  const { vacancies, isFetching, page, setPage, totalPage } = useHomePage();
+  const { vacancies, isFetching, page, setPage, TOTAL } = useHomePage();
 
   return (
     <Layout>
@@ -26,7 +26,7 @@ const HomePage = () => {
             <Pagination
               value={page}
               onChange={setPage}
-              total={totalPage}
+              total={TOTAL}
               className={styles.pagination}
               siblings={1}
               boundaries={1}

@@ -1,6 +1,5 @@
 import { Loader } from "@mantine/core";
 
-import NotFound from "@/assets/404.svg";
 import { Vacancy } from "@/store/types";
 import VacancyCard from "../VacancyCard";
 import EmptyState from "../EmptyState/EmptyState";
@@ -18,9 +17,11 @@ const VacancyList = ({
   isFetching,
   isHomeList,
 }: VacancyListProps) => {
+
   if (isFetching) {
     return <Loader size="xl" variant="dots" className={styles.loader} />;
   }
+
   return (
     <div className={styles.container}>
       {vacancies.length ? (
